@@ -3,15 +3,14 @@ name: Gatsby Deploy
 on:
   push:
     branches:
-      - deploy
-
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps: 
-        - uses: actions/checkout@v1
-        - uses: enrikke/gatsby-gh-pages-action@v2.1.1
-          with:
-            access-token: ${{ secrets.ACCESS_TOKEN }}
-            deploy-branch: gh-pages
-            gatsby-args: --prefix-paths
+      - 'deploy'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v1
+      - uses: enrikke/gatsby-gh-pages-action@v2.1.1
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: gh-pages
+          gatsby-args: --prefix-paths
