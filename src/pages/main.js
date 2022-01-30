@@ -8,7 +8,7 @@ const MainPage = ({ location }) => (
   <Layout>
     <Seo title="Main" />
     <h1>Hi from the second page</h1>
-    <p>Welcome to {location.state.query} </p>
+    <p>Welcome to {location.state?.query && location.state.query} </p>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
