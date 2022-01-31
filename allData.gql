@@ -1,0 +1,27 @@
+  allDataJson {
+    edges {
+      node {
+        packages {
+          package
+          version
+        }
+        parent {
+          ... on File {
+            name
+          }
+        }
+      }
+    }
+  }
+
+
+  allDataJson {
+    distinct(field: packages___package)
+    nodes {
+      parent {
+        ... on File {
+          name
+        }
+      }
+    }
+  }
