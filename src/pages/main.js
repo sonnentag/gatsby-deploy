@@ -21,7 +21,7 @@ const MainPage = ({ location, data }) => (
                 {node}
             </li>
         ))
-        : <li/> 
+        : <p>Please select either repos or packages from the menu above.</p>
     }
     </ul>
     <Link to="/">Go back to the homepage</Link>
