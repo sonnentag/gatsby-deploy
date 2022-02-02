@@ -1,28 +1,56 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { Link, graphql } from "gatsby"
 
 import Seo from "../components/seo"
 
-const IndexPage = () => (
+
+const MainPage = ({ location, data }) => (
   <>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="page-2">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
+    <Seo title="Main" />
+    <h1> {location.state?.query && location.state.query} </h1>
+    <ul>
+    {location.state?.query && location.state.query === 'repos'
+        ? data.repos.edges.map(edge => (
+            <li key={edge.node.parent.name}>
+                {edge.node.parent.name}
+            </li>
+        ))
+        : location.state?.query && location.state.query === 'packages'
+        ? data.packages.distinct.map(node => (
+            <li key={node}>
+                {node}
+            </li>
+        ))
+        : <p>Please select either repos or packages from the menu above.</p>
+    }
+    </ul>
   </>
 )
 
-export default IndexPage
+export const mainQuery = graphql`
+  query {
+    packages: allDataJson {
+      edges {
+        node {
+          packages {
+            package
+          }
+        }
+      }
+      distinct(field: packages___package)
+    }
+    repos: allDataJson {
+      edges {
+        node {
+          parent {
+            ... on File {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+export default MainPage
