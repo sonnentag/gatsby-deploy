@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 const ResultsPage = ({ location }) => (
     <>
         <Seo title="Results" />
-<p>{location.state.select}</p>
+<p>{location.state?.select && location.state.select}</p>
     </>
 )
 
