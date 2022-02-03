@@ -24,12 +24,20 @@ def main():
         argp.error("The GitHub repository must look like jupyter/notebook")
     repo_owner, repo_name = parts
 
-    fileName = "%s.json" % args.repository.split('/')[1]
+    ##
+    # create filename from repo_name
+    fileName = "%s.json" % repo_name 
+
     config = get_config(args.flush)
 
     pkgData = {} 
+
+    ## 
+    # declare dict for our file data
     finalData = {}
+    # object of parameters to save
     repoData = [] 
+
     gh = GitHub(key=config['github_token'], cache=config['cache'])
     allDeps = gh.get_dependencies(repo_owner, repo_name, depth=args.depth, lang=args.lang)
     for dep in allDeps:
@@ -38,13 +46,19 @@ def main():
         version = dep['requirements']
         pkgData['package'] = package 
         pkgData['version'] = version 
+
+        ##
+        # append this dependency to our data
         repoData.append(dict(pkgData))
+
         if dep['repository']:
             url = 'https://github.com/{0[owner][login]}/{0[name]}'.format(dep['repository'])
         else:
             url = ''
         print('{} {}@{}: {}'.format(indent, package, version, url))
 
+    ##
+    # save json to file
     with open(fileName,'w') as file:
         finalData = {"packages": repoData}
         file.write(json.dumps(finalData) + '\n')
