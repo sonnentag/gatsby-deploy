@@ -35,7 +35,7 @@ def main():
     ## 
     # declare dict for our file data
     finalData = {}
-    # object of parameters to save
+    # list of json objects to save
     repoData = [] 
 
     gh = GitHub(key=config['github_token'], cache=config['cache'])
