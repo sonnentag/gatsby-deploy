@@ -1,9 +1,0 @@
-  allDataJson(
-    filter: {parent: {id: {eq: "6474e9e4-da25-5e43-895f-7a920f6bbeb1"}}}
-  ) {
-    edges {
-      node {
-        packages { package version }
-      }
-    }
-  }

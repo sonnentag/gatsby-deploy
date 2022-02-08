@@ -9,9 +9,10 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
     query {
-      repos: allDataJson {
+      packages: allDataJson {
         edges {
           node {
+            packages { package version }
             parent {
               ... on File {
                 id
@@ -20,34 +21,23 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-      }
-      packages: allDataJson {
-        edges {
-          node {
-            packages { 
-              package
-              version
-            }
-          }
-        }
+        distinct(field: packages___package)
       }
     }
   `)
 
-  data.repos.edges.forEach(edge => {
+  data.packages.distinct.forEach(node => {
+      actions.createPage({
+          path: '/' + node,
+          component: path.resolve('./src/templates/packageResults.js'),
+          context: { packageName: node }
+      })
+  }),
+  data.packages.edges.forEach(edge => {
       actions.createPage({
           path: '/' + edge.node.parent.name,
           component: path.resolve('./src/templates/repoResults.js'),
-          context: { repo: edge.node.parent.name }
-      })
-  })
-
-  data.packages.edges.forEach(edge => {
-      name = edge.node.packages.package,
-      actions.createPage({
-          path: '/' + name, 
-          component: path.resolve('./src/templates/packageResults.js'),
-          context: { repo: edge.node.packages.package }
+          context: { repoId: edge.node.parent.id }
       })
   })
 }
