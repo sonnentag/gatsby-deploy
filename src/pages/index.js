@@ -11,10 +11,7 @@ const MainPage = ({ location, data }) => (
     {location.state?.query && location.state.query === 'repos'
         ? data.repos.edges.map(edge => (
             <li key={edge.node.parent.name}>
-                <Link
-                    to="/results"
-                    state={{ select: edge.node.parent.name }}
-                >
+                <Link to={edge.node.parent.name} >
                     {edge.node.parent.name}
                 </Link>
             </li>
@@ -22,10 +19,7 @@ const MainPage = ({ location, data }) => (
         : location.state?.query && location.state.query === 'packages'
         ? data.packages.distinct.map(node => (
             <li key={node}>
-                <Link
-                    to="/results"
-                    state={{ select: node }}
-                >
+                <Link to={node} >
                     {node}
                 </Link>
             </li>
