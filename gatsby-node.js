@@ -44,9 +44,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   data.packages.edges.forEach(edge => {
       name = edge.node.packages.package,
-      newName = name.replace(/\//g, "-"),
       actions.createPage({
-          path: '/' + newName, 
+          path: '/' + name, 
           component: path.resolve('./src/templates/packageResults.js'),
           context: { repo: edge.node.packages.package }
       })
