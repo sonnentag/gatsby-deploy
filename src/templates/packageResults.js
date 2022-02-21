@@ -5,7 +5,7 @@ import Seo from "../components/seo"
 
 
 if (typeof window !== "undefined") {
-    path = window.location.pathname;
+    let path = window.location.pathname;
 }
 
 const PackageResults = ({ data, path }) => (
