@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-repos=("AskRI" "bcbs.com" "sailorsforthesea.org" "onepercentamerica.org-drupal" "little-trees.eu")
+repos=("somerepo" "someotherrepos")
 
 for repo in "${repos[@]}"
   do
-    python3 lib/xkcd2347.py oomphinc/$repo
+    python3 lib/xkcd2347.py user-or-org/$repo
 done
