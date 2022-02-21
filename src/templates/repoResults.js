@@ -5,7 +5,9 @@ import Seo from "../components/seo"
 
 import "../styles/results.css"
 
-let path = window.location.pathname;
+if (typeof window !== "undefined") {
+    let path = window.location.pathname;
+}
 
 const RepoResults = ({ data, path }) => (
     <>

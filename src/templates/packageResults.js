@@ -4,7 +4,9 @@ import { graphql, Link } from "gatsby"
 import Seo from "../components/seo"
 
 
-let path = window.location.pathname;
+if (typeof window !== "undefined") {
+    path = window.location.pathname;
+}
 
 const PackageResults = ({ data, path }) => (
     <>
