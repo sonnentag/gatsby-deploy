@@ -7,26 +7,30 @@ const MainPage = ({ location, data }) => (
   <>
     <Seo title="Main" />
     <h1> {location.state?.query && location.state.query} </h1>
-    <ul>
+    <table className="table table-condensed table-borderless">
     {location.state?.query && location.state.query === 'repos'
         ? data.repos.edges.map(edge => (
-            <li key={edge.node.parent.name}>
+          <tr>
+            <td>
                 <Link to={edge.node.parent.name} >
                     {edge.node.parent.name}
                 </Link>
-            </li>
+            </td>
+          </tr>
         ))
         : location.state?.query && location.state.query === 'packages'
         ? data.packages.distinct.map(node => (
-            <li key={node}>
+          <tr>
+            <td>
                 <Link to={node} >
                     {node}
                 </Link>
-            </li>
+            </td>
+          </tr>
         ))
         : <p>Please select either repos or packages from the menu above.</p>
     }
-    </ul>
+    </table>
   </>
 )
 

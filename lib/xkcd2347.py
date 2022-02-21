@@ -166,7 +166,7 @@ class GitHub:
                             lang
                         )
                         self.parents.pop()
-
+        seen = ''     
     def query(self, q):
         if self.cache and q in self.cache:
             return self.cache[q]

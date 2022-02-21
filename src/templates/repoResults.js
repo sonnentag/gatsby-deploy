@@ -1,19 +1,32 @@
 import * as React from "react"
+import { Table } from "react-bootstrap"
 import { graphql, Link } from "gatsby"
 import Seo from "../components/seo"
 
+import "../styles/results.css"
 
-const RepoResults = ({ data }) => (
+let path = window.location.pathname;
+
+const RepoResults = ({ data, path }) => (
     <>
       <Seo title="Results" />
     <ul>
-      { data.dataJson.packages.map(node => (
-            <li key={node.package}>
-                <Link to={node.package} >
-                    {node.package}
-                </Link>
-            </li>
-      ))}
+      <table class="table table-hover table-condensed table-borderless">
+        <thead>
+          <tr>
+            <th scope="column">All packages in {path.substring(1)}</th>
+            <th scope="column">Version</th>
+          </tr>
+        </thead>
+        { data.dataJson.packages.map(node => (
+          <tbody>
+            <tr>
+              <td>{node.package}</td>
+              <td>{node.version}</td>
+            </tr>
+          </tbody>
+        ))}
+      </table>
     </ul>
     </>
 )
