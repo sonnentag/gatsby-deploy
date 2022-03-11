@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
     query {
       packages: allDataJson {
+        distinct(field: packages___package)
         edges {
           node {
             packages { package version }
@@ -21,7 +22,6 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        distinct(field: packages___package)
       }
     }
   `)

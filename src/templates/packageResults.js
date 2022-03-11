@@ -3,7 +3,6 @@ import { Table } from "react-bootstrap"
 import { graphql, Link } from "gatsby"
 import Seo from "../components/seo"
 
-
 if (typeof window !== "undefined") {
     let path = window.location.pathname;
 }
@@ -11,25 +10,27 @@ if (typeof window !== "undefined") {
 const PackageResults = ({ data, path }) => (
     <>
       <Seo title="Results" />
-      <ul>
-        <table class="table table-hover table-condensed table-borderless">
+        <table className="table table-hover table-condensed table-striped">
           <thead>
             <tr>
               <th scope="column">All repos with {path.substring(1)}</th>
               <th scope="column">Version</th>
             </tr>
           </thead>
-  
-          { data.allDataJson.edges.map(edge => (
-            <tbody>
-              <tr>
-                <td>{edge.node.parent.name}</td>
-                <td>{edge.node.packages.version}</td>
-              </tr>
-            </tbody>
-          ))}
+          <tbody>
+            { data.allDataJson.edges.map(edge => {
+                return edge.node.packages.map(pkg =>
+                    pkg.package == path.substring(1) ? 
+                        <tr>
+                            <td> {edge.node.parent.name} </td>
+                            <td> {pkg.version} </td>
+                        </tr> 
+                    : null
+                )
+              })
+            }
+          </tbody>
         </table>
-      </ul>
     </>
 )
 
@@ -45,8 +46,8 @@ export const query = graphql`
             }
           }
           packages {
-            package
-            version
+              package
+              version
           }
         }
       }

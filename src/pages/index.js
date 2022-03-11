@@ -8,6 +8,7 @@ const MainPage = ({ location, data }) => (
     <Seo title="Main" />
     <h1> {location.state?.query && location.state.query} </h1>
     <table className="table table-condensed table-borderless">
+      <tbody> 
     {location.state?.query && location.state.query === 'repos'
         ? data.repos.edges.map(edge => (
           <tr>
@@ -30,6 +31,7 @@ const MainPage = ({ location, data }) => (
         ))
         : <p>Please select either repos or packages from the menu above.</p>
     }
+      </tbody> 
     </table>
   </>
 )

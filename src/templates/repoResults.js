@@ -3,8 +3,6 @@ import { Table } from "react-bootstrap"
 import { graphql, Link } from "gatsby"
 import Seo from "../components/seo"
 
-import "../styles/results.css"
-
 if (typeof window !== "undefined") {
     let path = window.location.pathname;
 }
@@ -12,24 +10,22 @@ if (typeof window !== "undefined") {
 const RepoResults = ({ data, path }) => (
     <>
       <Seo title="Results" />
-    <ul>
-      <table class="table table-hover table-condensed table-borderless">
+      <table className="table table-hover table-condensed table-striped">
         <thead>
           <tr>
             <th scope="column">All packages in {path.substring(1)}</th>
             <th scope="column">Version</th>
           </tr>
         </thead>
-        { data.dataJson.packages.map(node => (
-          <tbody>
+        <tbody>
+          { data.dataJson.packages.map(node => (
             <tr>
               <td>{node.package}</td>
               <td>{node.version}</td>
             </tr>
-          </tbody>
-        ))}
+          ))}
+        </tbody>
       </table>
-    </ul>
     </>
 )
 
