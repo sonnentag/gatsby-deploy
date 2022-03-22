@@ -1,0 +1,1 @@
+{"package": "oomphinc/wordpress-framework", "version": "dev-master", "installer": "composer", "repo": "wordpress-skeleton.json"}, {"package": "wordpress/wordpress", "version": "^4.0", "installer": "composer"}, {"package": "drupal-composer/preserve-paths", "version": "^0.1", "installer": "composer"}

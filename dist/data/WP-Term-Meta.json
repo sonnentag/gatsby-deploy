@@ -1,0 +1,1 @@
+{"package": "php", "version": ">=5.4", "installer": "composer", "repo": "WP-Term-Meta.json"}, {"package": "oomphinc/composer-installers-extender", "version": "^1.0", "installer": "composer"}

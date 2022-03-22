@@ -7,7 +7,9 @@ if (typeof window !== "undefined") {
     let path = window.location.pathname;
 }
 
-const RepoResults = ({ data, path }) => (
+function search(string){ window.find(string); }
+
+const RepoResults = ({ data, path, search }) => (
     <>
       <Seo title="Results" />
       <table className="table table-hover table-condensed table-striped">
@@ -18,21 +20,40 @@ const RepoResults = ({ data, path }) => (
           </tr>
         </thead>
         <tbody>
-          { data.dataJson.packages.map(node => (
-            <tr>
-              <td>{node.package}</td>
-              <td>{node.version}</td>
-            </tr>
-          ))}
+            <input placeholder="Find in Page" type="text" id="search"/>
+            <input type="button" value="Go" onclick="search(document.getElementById('search').value)"/>
+            <tr><th>Composer packages</th></tr>
+            { data.dataJson.packages.map(node => (
+                node.installer == 'composer' ?
+                <tr>
+                  <td>{node.package}</td>
+                  <td>{node.version}</td>
+                </tr>
+              : null
+            ))}
+            <tr><th>Node packages</th></tr>
+            { data.dataJson.packages.map(node => (
+                node.installer == 'package-lock' ?
+                <tr>
+                  <td>{node.package}</td>
+                  <td>{node.version}</td>
+                </tr>
+              : null
+            ))}
         </tbody>
       </table>
     </>
 )
 
 export const query = graphql`
-  query RepoQuery($repoId: String) {
-    dataJson( parent: {id: {eq: $repoId}}) {
-      packages { package version }
+  query RepoQuery($repoName: String) {
+    dataJson(packages: {elemMatch: {repo: {eq: $repoName}}}) {
+      packages {
+        version
+        repo
+        package
+        installer
+      }
     }
   }
 `

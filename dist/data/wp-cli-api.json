@@ -1,0 +1,1 @@
+{"package": "phpunit/phpunit", "version": "~4.5", "installer": "composer", "repo": "wp-cli-api.json"}, {"package": "wp-cli/wp-cli", "version": "0.18.*", "installer": "composer"}, {"package": "sstephenson/bats", "version": "0.4.0", "installer": "composer"}

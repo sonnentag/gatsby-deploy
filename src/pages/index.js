@@ -10,11 +10,11 @@ const MainPage = ({ location, data }) => (
     <table className="table table-condensed table-borderless">
       <tbody> 
     {location.state?.query && location.state.query === 'repos'
-        ? data.repos.edges.map(edge => (
+        ? data.repos.distinct.map(node => (
           <tr>
             <td>
-                <Link to={edge.node.parent.name} >
-                    {edge.node.parent.name}
+                <Link to={node} >
+                    {node}
                 </Link>
             </td>
           </tr>
@@ -39,26 +39,21 @@ const MainPage = ({ location, data }) => (
 export const mainQuery = graphql`
   query {
     packages: allDataJson {
-      edges {
-        node {
+        nodes {
           packages {
             package
           }
         }
-      }
       distinct(field: packages___package)
     }
     repos: allDataJson {
-      edges {
-        node {
-          parent {
-            ... on File {
-              name
-            }
+      distinct(field: packages___repo)
+        nodes {
+          packages {
+              repo
           }
         }
       }
-    }
   }
 `
 

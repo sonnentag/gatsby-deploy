@@ -1,0 +1,1 @@
+{"packages": [{"package": "php", "version": ">=5.5.9", "installer": "composer", "repo": "d8-google-login"}, {"package": "google/apiclient", "version": "1.1@dev", "installer": "composer", "repo": "d8-google-login"}]}

@@ -1,0 +1,1 @@
+{"package": "drupal-composer/preserve-paths", "version": "^0.1", "installer": "composer", "repo": "home.hbsp.harvard.edu.json"}, {"package": "wordpress-plugin/classic-editor", "version": "^1.3", "installer": "composer"}, {"package": "wordpress/wordpress", "version": "^5.0", "installer": "composer"}

@@ -1,0 +1,1 @@
+{"package": "nategood/httpful", "version": "*", "installer": "composer", "repo": "team-stream.json"}, {"package": "j7mbo/twitter-api-php", "version": "dev-master", "installer": "composer"}, {"package": "codeguy/upload", "version": "~1.3", "installer": "composer"}

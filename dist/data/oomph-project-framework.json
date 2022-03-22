@@ -1,0 +1,1 @@
+{"package": "symfony/console", "version": "^3.3", "installer": "composer", "repo": "oomph-project-framework.json"}, {"package": "symfony/yaml", "version": "^3.3", "installer": "composer"}, {"package": "symfony/dependency-injection", "version": "^3.3", "installer": "composer"}

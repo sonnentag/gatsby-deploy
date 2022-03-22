@@ -1,0 +1,1 @@
+{"package": "ajt/guzzle-toggl", "version": "^0.10.0", "installer": "composer", "repo": "toggl-tempo.json"}, {"package": "guzzlehttp/guzzle", "version": "^5.0", "installer": "composer"}

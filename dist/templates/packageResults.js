@@ -18,15 +18,15 @@ const PackageResults = ({ data, path }) => (
             </tr>
           </thead>
           <tbody>
-            { data.allDataJson.nodes.map(node => {
-               return node.packages.map(pkg =>
+            { data.allDataJson.edges.map(edge => {
+                return edge.node.packages.map(pkg =>
                     pkg.package == path.substring(1) ? 
                         <tr>
-                        <td> {pkg.repo} </td>
-                        <td> {pkg.version} </td>
+                            <td> {edge.node.parent.name} </td>
+                            <td> {pkg.version} </td>
                         </tr> 
                     : null
-                ) 
+                )
               })
             }
           </tbody>
@@ -37,12 +37,18 @@ const PackageResults = ({ data, path }) => (
 export const query = graphql`
   query PackageQuery($packageName: String) {
     allDataJson(filter: {packages: {elemMatch: {package: {eq: $packageName}}}}) {
-    nodes {
-        packages {
-            package
-            version
-            repo
-            installer
+      edges {
+        node {
+          parent {
+            ... on File {
+              id
+              name
+            }
+          }
+          packages {
+              package
+              version
+          }
         }
       }
     }
