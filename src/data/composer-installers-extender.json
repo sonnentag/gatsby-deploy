@@ -1,1 +1,0 @@
-{"packages": [{"package": "php", "version": ">=7.1", "installer": "composer", "repo": "composer-installers-extender"}, {"package": "composer-plugin-api", "version": "^1.1 || ^2.0", "installer": "composer", "repo": "composer-installers-extender"}, {"package": "composer/installers", "version": "^1.0 || ^2.0", "installer": "composer", "repo": "composer-installers-extender"}]}
