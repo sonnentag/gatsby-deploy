@@ -1,1 +1,0 @@
-{"package": "oomphinc/project-framework", "version": "*", "installer": "composer", "repo": "wordpress-framework.json"}, {"package": "wordpress/wordpress", "version": "^5.0", "installer": "composer"}

@@ -1,5 +1,7 @@
 import * as React from "react"
 import { Table } from "react-bootstrap"
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
 import { graphql, Link } from "gatsby"
 import Seo from "../components/seo"
 
@@ -7,11 +9,10 @@ if (typeof window !== "undefined") {
     let path = window.location.pathname;
 }
 
-function search(string){ window.find(string); }
-
 const RepoResults = ({ data, path, search }) => (
     <>
       <Seo title="Results" />
+<div className="table-responsive w-auto"> 
       <table className="table table-hover table-condensed table-striped">
         <thead>
           <tr>
@@ -19,29 +20,31 @@ const RepoResults = ({ data, path, search }) => (
             <th scope="column">Version</th>
           </tr>
         </thead>
-        <tbody>
-            <input placeholder="Find in Page" type="text" id="search"/>
-            <input type="button" value="Go" onclick="search(document.getElementById('search').value)"/>
-            <tr><th>Composer packages</th></tr>
+      </table>
+
+    <Tabs fill defaultActiveKey="composer" id="basicTabs" className="m-3">
+            <Tab eventKey="composer" title="Composer packages" className="mx-5">
             { data.dataJson.packages.map(node => (
                 node.installer == 'composer' ?
-                <tr>
-                  <td>{node.package}</td>
-                  <td>{node.version}</td>
-                </tr>
+                <div className="d-flex resultRow">
+                  <div className="w-50 flex-fill">{node.package}</div>
+                  <div className="flex-fill">{node.version}</div>
+                </div>
               : null
             ))}
-            <tr><th>Node packages</th></tr>
+            </Tab>
+            <Tab eventKey="node" title="Node packages" className="mx-5">
             { data.dataJson.packages.map(node => (
                 node.installer == 'package-lock' ?
-                <tr>
-                  <td>{node.package}</td>
-                  <td>{node.version}</td>
-                </tr>
+                <div className="d-flex resultRow">
+                  <div className="w-50 flex-fill">{node.package}</div>
+                  <div className="flex-fill">{node.version}</div>
+                </div>
               : null
             ))}
-        </tbody>
-      </table>
+            </Tab>
+            </Tabs>
+      </div>
     </>
 )
 

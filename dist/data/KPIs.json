@@ -1,1 +1,0 @@
-{"package": "phpunit/phpunit", "version": "~4.5", "installer": "composer", "repo": "KPIs.json"}, {"package": "vlucas/phpdotenv", "version": "^2.1", "installer": "composer"}, {"package": "twig/twig", "version": "~1.23", "installer": "composer"}

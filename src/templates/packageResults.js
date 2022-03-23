@@ -17,26 +17,26 @@ const PackageResults = ({ data, path }) => (
               <th scope="column">Version</th>
             </tr>
           </thead>
-          <tbody>
+        </table>
+        <div className="table-responsive w-75 p-4 mx-5">
             { data.allDataJson.nodes.map(node => {
                return node.packages.map(pkg =>
                     pkg.package == path.substring(1) ? 
-                        <tr>
-                        <td> {pkg.repo} </td>
-                        <td> {pkg.version} </td>
-                        </tr> 
+                        <div className="d-flex resultRow">
+                            <div className="w-50 flex-fill">{pkg.repo}</div>
+                            <div className="flex-fill">{pkg.version}</div>
+                        </div>
                     : null
                 ) 
               })
             }
-          </tbody>
-        </table>
+        </div>
     </>
 )
 
 export const query = graphql`
   query PackageQuery($packageName: String) {
-    allDataJson(filter: {packages: {elemMatch: {package: {eq: $packageName}}}}) {
+    allDataJson(filter: {packages: {elemMatch: {package: {eq: $packageName}}}}, sort: { fields: [packages___version], order: ASC }) {
     nodes {
         packages {
             package

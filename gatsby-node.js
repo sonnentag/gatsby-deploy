@@ -26,7 +26,7 @@ exports.createPages = async ({ graphql, actions }) => {
             packages { 
                 package 
                 version 
-                repo 
+                repo
                 installer 
             }
           }

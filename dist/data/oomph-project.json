@@ -1,1 +1,0 @@
-{"package": "php", "version": ">=5.6", "installer": "composer", "repo": "oomph-project.json"}, {"package": "oomphinc/oomph-project-framework", "version": "dev-master", "installer": "composer"}, {"package": "incenteev/composer-parameter-handler", "version": "^2.1", "installer": "composer"}
