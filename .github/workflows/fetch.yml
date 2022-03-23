@@ -1,12 +1,9 @@
 name: Collect data 
 
-on:
-  workflow_dispatch
-  schedule:
-    - cron: '30 10 * * *'
+on: [workflow_dispatch]
 
 jobs:
-  fetch_data:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -18,9 +15,6 @@ jobs:
           cd scripts/
           python fetch.py 
           python package-retrieve.py 
-  build:
-    runs-on: ubuntu-latest
-    steps:
       - name: Check Git status
         id: git
         shell: bash
@@ -31,4 +25,4 @@ jobs:
         if: "!contains(steps.git.outputs.result, 'working tree clean')"
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: Gatsby Deploy
+          workflow: Deploy

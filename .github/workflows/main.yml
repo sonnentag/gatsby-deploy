@@ -1,10 +1,9 @@
-name: Gatsby Deploy
+name: Deploy
 
-on:
-  workflow_call:
+on: [workflow_call]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v1
