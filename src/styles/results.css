@@ -1,0 +1,9 @@
+.resultRow:nth-child(even) {
+background: #E8E8E8;
+}
+.resultRow:hover {
+    background: #FFEFD5!important;
+}
+.resultTab {
+    font:bold;
+}

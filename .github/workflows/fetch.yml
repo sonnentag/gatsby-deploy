@@ -1,0 +1,28 @@
+name: Collect data 
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: execute py script
+        run: |
+          cd scripts/
+          python fetch.py 
+          python package-retrieve.py 
+      - name: Check Git status
+        id: git
+        shell: bash
+        run: |
+          RESULT=$(git status)
+          echo "::set-output name=status::$RESULT"
+      - name: Other task
+        if: "!contains(steps.git.outputs.result, 'working tree clean')"
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Deploy
