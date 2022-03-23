@@ -16,7 +16,9 @@ files = ["package-lock.json", "composer.json"]
 directory = "packageinfo"
 
 # Retrieve the files of interest from the organization repositories
-repos = github_api.get_organization(org).get_repos()
+# repos = github_api.get_organization(org).get_repos()
+with open('./repos.txt') as f:
+  repos = f.read().splitlines()
 for repo in repos:
   print("Retrieving files from " + repo.name)
   os.makedirs(directory + "/" + repo.name, exist_ok=True)

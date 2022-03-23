@@ -40,7 +40,5 @@ for repo in repos:
       object = {"packages": item}
 
   if object:
-    if os.path.exists("../src/data/" + repo + ".json"):
-      os.remove("../src/data/" + repo + ".json")
-    with open("../src/data/" + repo + ".json", 'w') as file:
+    with open("../src/data/" + repo + ".json", 'w+') as file:
       file.write(str(object).replace("'", "\"") + '\n')
