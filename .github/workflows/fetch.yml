@@ -28,5 +28,5 @@ jobs:
           RESULT=$(git status)
           echo "::set-output name=status::$RESULT"
       - name: Other task
-        if: contains(steps.git.outputs.result, '...')
+        if: ! contains(steps.git.outputs.result, 'working tree clean')
         uses:./.github/workflows/main.yml
