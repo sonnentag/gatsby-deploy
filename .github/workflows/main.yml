@@ -1,9 +1,6 @@
 name: Gatsby Deploy
 
 on:
-  push:
-    branches:
-      - 'deploy'
   workflow_call:
 
 jobs:
