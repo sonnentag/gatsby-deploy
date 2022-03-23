@@ -14,7 +14,7 @@ jobs:
         run: |
           cd scripts/
           python -m pip install PyGithub
-          python fetch.py 
+          GITHUB_PAT=${{ secrets.GITHUB_TOKEN }} python fetch.py 
           python package-retrieve.py 
       - name: Check Git status
         id: git
