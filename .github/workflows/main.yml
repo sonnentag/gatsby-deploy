@@ -1,11 +1,12 @@
-name: Write Package Json
+name: Gatsby Deploy
 
 on:
-  workflow_dispatch:
+  push:
     branches:
       - 'deploy'
+
 jobs:
-  collect-data:
+  build:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v1
@@ -13,4 +14,9 @@ jobs:
         with:
           python-version: 3.8
       - name: execute py script
-        run: python3 scripts/package-retrieve.py 
+        run: python scripts/package-retrieve.py 
+      - uses: enriikke/gatsby-gh-pages-action@v2.1.1
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: gh-pages
+          gatsby-args: '--prefix-paths'
