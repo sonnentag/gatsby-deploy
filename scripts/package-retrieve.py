@@ -15,7 +15,7 @@ files = {"composer.json":"require", "package-lock.json":"dependencies"}
 directory = "packageinfo"
 
 # Retrieve the files of interest from the organization repositories
-with open('repos.txt') as f:
+with open('./repos.txt') as f:
   repos = f.read().splitlines()
 for repo in repos:
   # Retrieve the files of interest from the organization repositories
