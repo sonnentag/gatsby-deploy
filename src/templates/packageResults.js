@@ -1,13 +1,10 @@
 import * as React from "react"
-import { Table } from "react-bootstrap"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Seo from "../components/seo"
 
-if (typeof window !== "undefined") {
-    let path = window.location.pathname;
-}
 
-const PackageResults = ({ data, path }) => (
+/* template for pages created for all repos containing selected package */
+const PackageResults = ({ data, path = window.location.pathname }) => (
     <>
       <Seo title="Results" />
         <table className="table table-hover table-condensed table-striped">
@@ -21,7 +18,7 @@ const PackageResults = ({ data, path }) => (
         <div className="table-responsive w-75 p-4 mx-5">
             { data.allDataJson.nodes.map(node => {
                return node.packages.map(pkg =>
-                    pkg.package == path.substring(1) ? 
+                    pkg.package === path.substring(1) ? 
                         <div className="d-flex resultRow">
                             <div className="w-50 flex-fill">{pkg.repo}</div>
                             <div className="flex-fill">{pkg.version}</div>

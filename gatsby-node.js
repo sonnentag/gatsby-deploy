@@ -6,6 +6,7 @@
 
 const path = require('path')
 
+/* Query data for results templates */
 exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
     query {
@@ -33,7 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     }
   `)
-
+  /* create pages from templates using queried data */
   data.packages.distinct.forEach(pkg => {
       actions.createPage({
           path: '/' + pkg,
