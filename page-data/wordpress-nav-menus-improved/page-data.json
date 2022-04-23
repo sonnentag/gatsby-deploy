@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-repo-results-js",
+    "path": "/wordpress-nav-menus-improved",
+    "result": {"data":{"dataJson":{"packages":[{"version":">=5.4","repo":"wordpress-nav-menus-improved","package":"php","installer":"php"}]}},"pageContext":{"repoName":"wordpress-nav-menus-improved"}},
+    "staticQueryHashes": ["3649515864","63159454"]}

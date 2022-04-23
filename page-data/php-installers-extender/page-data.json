@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-repo-results-js",
+    "path": "/php-installers-extender",
+    "result": {"data":{"dataJson":{"packages":[{"version":">=7.1","repo":"php-installers-extender","package":"php","installer":"php"},{"version":"^1.1 || ^2.0","repo":"php-installers-extender","package":"php-plugin-api","installer":"php"},{"version":"^1.0 || ^2.0","repo":"php-installers-extender","package":"php/installers","installer":"php"}]}},"pageContext":{"repoName":"php-installers-extender"}},
+    "staticQueryHashes": ["3649515864","63159454"]}

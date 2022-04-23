@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-package-results-js",
+    "path": "/php-plugin-api",
+    "result": {"data":{"allDataJson":{"nodes":[{"packages":[{"package":"php","version":">=7.1","repo":"php-installers-extender","installer":"php"},{"package":"php-plugin-api","version":"^1.1 || ^2.0","repo":"php-installers-extender","installer":"php"},{"package":"php/installers","version":"^1.0 || ^2.0","repo":"php-installers-extender","installer":"php"}]}]}},"pageContext":{"packageName":"php-plugin-api"}},
+    "staticQueryHashes": ["3649515864","63159454"]}

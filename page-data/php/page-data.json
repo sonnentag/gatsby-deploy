@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-package-results-js",
+    "path": "/php",
+    "result": {"data":{"allDataJson":{"nodes":[{"packages":[{"package":"php","version":">=5.4","repo":"wordpress-nav-menus-improved","installer":"php"}]},{"packages":[{"package":"php","version":">=5.4","repo":"gravity-forms-google-places","installer":"php"}]},{"packages":[{"package":"php","version":">=5.4","repo":"WP-Forms-API","installer":"php"},{"package":"oomphinc/php-installers-extender","version":"^1.0","repo":"WP-Forms-API","installer":"php"}]},{"packages":[{"package":"php","version":">=5.5.9","repo":"d8-google-login","installer":"php"},{"package":"google/apiclient","version":"1.1@dev","repo":"d8-google-login","installer":"php"}]},{"packages":[{"package":"php","version":">=7.1","repo":"php-installers-extender","installer":"php"},{"package":"php-plugin-api","version":"^1.1 || ^2.0","repo":"php-installers-extender","installer":"php"},{"package":"php/installers","version":"^1.0 || ^2.0","repo":"php-installers-extender","installer":"php"}]}]}},"pageContext":{"packageName":"php"}},
+    "staticQueryHashes": ["3649515864","63159454"]}

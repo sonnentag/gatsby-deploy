@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-repo-results-js",
+    "path": "/d8-google-login",
+    "result": {"data":{"dataJson":{"packages":[{"version":">=5.5.9","repo":"d8-google-login","package":"php","installer":"php"},{"version":"1.1@dev","repo":"d8-google-login","package":"google/apiclient","installer":"php"}]}},"pageContext":{"repoName":"d8-google-login"}},
+    "staticQueryHashes": ["3649515864","63159454"]}

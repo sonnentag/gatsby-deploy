@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-repo-results-js",
+    "path": "/gravity-forms-google-places",
+    "result": {"data":{"dataJson":{"packages":[{"version":">=5.4","repo":"gravity-forms-google-places","package":"php","installer":"php"}]}},"pageContext":{"repoName":"gravity-forms-google-places"}},
+    "staticQueryHashes": ["3649515864","63159454"]}

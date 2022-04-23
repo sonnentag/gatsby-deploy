@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-repo-results-js",
+    "path": "/WP-Forms-API",
+    "result": {"data":{"dataJson":{"packages":[{"version":">=5.4","repo":"WP-Forms-API","package":"php","installer":"php"},{"version":"^1.0","repo":"WP-Forms-API","package":"oomphinc/php-installers-extender","installer":"php"}]}},"pageContext":{"repoName":"WP-Forms-API"}},
+    "staticQueryHashes": ["3649515864","63159454"]}
