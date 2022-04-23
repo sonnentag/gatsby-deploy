@@ -1,0 +1,1 @@
+{"packages": [{"package": "php", "version": ">=5.4", "installer": "php", "repo": "WP-Forms-API"}, {"package": "oomphinc/php-installers-extender", "version": "^1.0", "installer": "php", "repo": "WP-Forms-API"}]}

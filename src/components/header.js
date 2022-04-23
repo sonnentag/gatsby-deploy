@@ -24,6 +24,7 @@ const Header = ({ siteTitle }) => (
               <Link 
                 to="/" 
                 state={{ query: "packages" }}
+                pageContext={{ current: "3" }}
                 className="nav-link" 
                 activeClassName="active"
               >

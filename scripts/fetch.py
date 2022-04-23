@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-import github
+from github import Github
 
 # Check for the GitHub access token
 pat = os.environ.get("GITHUB_PAT")
@@ -10,7 +10,7 @@ if pat is None:
   exit(1)
 
 # Configure values
-github_api = github.Github(pat)
+github_api = Github(pat)
 org = "oomphinc"
 files = ["package-lock.json", "composer.json"]
 directory = "packageinfo"

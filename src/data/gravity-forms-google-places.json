@@ -1,0 +1,1 @@
+{"packages": [{"package": "php", "version": ">=5.4", "installer": "php", "repo": "gravity-forms-google-places"}]}

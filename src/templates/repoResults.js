@@ -9,6 +9,7 @@ if (typeof window !== "undefined") {
     let path = window.location.pathname;
 }
 
+/* template for pages created for all packages in selected repo */
 const RepoResults = ({ data, path, search }) => (
     <>
       <Seo title="Results" />
@@ -22,10 +23,10 @@ const RepoResults = ({ data, path, search }) => (
         </thead>
       </table>
 
-    <Tabs fill defaultActiveKey="composer" id="basicTabs" className="m-3">
-            <Tab eventKey="composer" title="Composer packages" className="mx-5">
+    <Tabs fill defaultActiveKey="php" id="basicTabs" className="m-3">
+            <Tab eventKey="php" title="Composer packages" className="mx-5">
             { data.dataJson.packages.map(node => (
-                node.installer == 'composer' ?
+                node.installer == 'php' ?
                 <div className="d-flex resultRow">
                   <div className="w-50 flex-fill">{node.package}</div>
                   <div className="flex-fill">{node.version}</div>
@@ -35,7 +36,7 @@ const RepoResults = ({ data, path, search }) => (
             </Tab>
             <Tab eventKey="node" title="Node packages" className="mx-5">
             { data.dataJson.packages.map(node => (
-                node.installer == 'package-lock' ?
+                node.installer == 'node' ?
                 <div className="d-flex resultRow">
                   <div className="w-50 flex-fill">{node.package}</div>
                   <div className="flex-fill">{node.version}</div>

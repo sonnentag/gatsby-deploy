@@ -13,6 +13,7 @@ jobs:
       - name: execute py script
         run: |
           cd scripts/
+          pip3 install pygithub
           python fetch.py 
           python package-retrieve.py 
       - name: Check Git status
