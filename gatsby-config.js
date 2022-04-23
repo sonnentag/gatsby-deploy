@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: `/pkg-trkr`,
+  pathPrefix: `/gatsby-deploy`,
   siteMetadata: {
     title: `Oomph Package Tracker`,
     description: `Track packages/versions across all Oomphinc repos.`,
