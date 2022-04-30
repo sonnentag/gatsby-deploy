@@ -15,7 +15,7 @@ jobs:
       - run: npm run build
 
       - name: Archive the build results
-        shell: "tar -czf /tmp/build.tar.gz public/"
+        run: "tar -czf /tmp/build.tar.gz public/"
       - name: Upload the build archive
         uses: actions/upload-artifact@v1
         with:
