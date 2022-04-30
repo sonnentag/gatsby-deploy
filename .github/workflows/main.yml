@@ -7,27 +7,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: "14.x"
+          node-version: 14
       - run: npm install
       - run: npm run build
 
       - name: Archive the build results
         shell: "tar -czf /tmp/build.tar.gz public/"
       - name: Upload the build archive
-        # if: github.ref == 'refs/heads/development' || github.ref == 'refs/heads/staging' || startsWith(github.ref, 'refs/tags/')
         uses: actions/upload-artifact@v1
         with:
           name: build.tar.gz
           path: /tmp/build.tar.gz
-        # deploy:
-        # runs-on: ubuntu-latest
-        # steps: 
-        #  - uses: actions/checkout@v1
-        # - uses: enriikke/gatsby-gh-pages-action@v2.1.1
-        #   with:
-        #  access-token: ${{ secrets.ACCESS_TOKEN }}
-        #  deploy-branch: gh-pages
-        #  gatsby-args: '--prefix-paths'
